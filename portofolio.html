@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Portofolio pribadi yang modern dan minimalis."
+    />
+    <title>Portofolio Saya</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        line-height: 1.6;
+        transition: background-color 0.3s, color 0.3s;
+      }
+      :root {
+        --bg-color: #f1ecec;
+        --text-color: #333;
+        --accent-color: #3ba99c;
+        --header-bg: #fff;
+        --footer-bg: #f0f0f0;
+      }
+      .dark-mode {
+        --bg-color: #121212;
+        --text-color: #e0e0e0;
+        --accent-color: #3ba99c;
+        --header-bg: #1e1e1e;
+        --footer-bg: #1e1e1e;
+      }
+      header {
+        position: sticky;
+        top: 0;
+        background: var(--header-bg);
+        padding: 1rem 2rem;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 1000;
+      }
+      header .logo {
+        display: flex;
+        align-items: center;
+      }
+      header .logo img {
+        width: 32px;
+        height: 32px;
+        margin-right: 10px;
+      }
+      header nav a {
+        margin-left: 20px;
+        text-decoration: none;
+        color: var(--text-color);
+        transition: color 0.3s ease;
+      }
+      header nav a:hover {
+        color: var(--accent-color);
+      }
+      .hero,
+      .section {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.8s ease, transform 0.8s ease;
+      }
+      .hero.visible,
+      .section.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .hero {
+        text-align: center;
+        padding: 4rem 2rem;
+        background: var(--header-bg);
+      }
+      .hero .profile-pic {
+        width: 160px;
+        height: 160px;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 4px solid var(--accent-color);
+        margin: 0 auto 1rem;
+        transition: transform 0.3s ease;
+      }
+      .hero .profile-pic img {
+        width: 100%;
+        height: 160px;
+        object-fit: cover;
+      }
+      .hero .profile-pic:hover {
+        transform: scale(1.05);
+      }
+      .section {
+        padding: 3rem 2rem;
+        max-width: 1000px;
+        margin: auto;
+      }
+      .portfolio-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+      }
+      .portfolio-item {
+        background: var(--header-bg);
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s ease;
+      }
+      .portfolio-item:hover {
+        transform: translateY(-5px);
+      }
+      .portfolio-item img {
+        width: 100%;
+        display: block;
+      }
+      .kontak-info {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        font-size: 1rem;
+      }
+      .kontak-info a {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: var(--text-color);
+        transition: color 0.3s ease;
+      }
+      .kontak-info a:hover {
+        color: var(--accent-color);
+      }
+      .kontak-info img {
+        width: 24px;
+        height: 24px;
+        margin-right: 10px;
+      }
+      footer {
+        text-align: center;
+        padding: 2rem;
+        background: var(--footer-bg);
+        font-size: 0.9rem;
+        transition: background-color 0.3s ease;
+      }
+      @media (max-width: 768px) {
+        header {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        header nav {
+          margin-top: 0.5rem;
+        }
+        header nav a {
+          margin-left: 0;
+          margin-right: 20px;
+        }
+      }
+      @media (max-width: 480px) {
+        .hero {
+          padding: 2rem 1rem;
+        }
+        .section {
+          padding: 2rem 1rem;
+        }
+        .hero .profile-pic {
+          width: 120px;
+          height: 120px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <img src="ChatGPT Image 24 Apr 2025, 01.05.05.png" alt="Logo" /><strong
+          >Wellcome</strong
+        >
+      </div>
+      <nav>
+        <a href="#tentang">Tentang</a><a href="#portofolio">Portofolio</a
+        ><a href="#kontak">Kontak</a
+        ><button
+          onclick="toggleDarkMode()"
+          style="
+            margin-left: 20px;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 8px;
+            background: var(--accent-color);
+            color: white;
+            cursor: pointer;
+          "
+        >
+          Dark Mode
+        </button>
+      </nav>
+    </header>
+    <section class="hero">
+      <div class="profile-pic">
+        <img src="fix.png" alt="Foto Profil" />
+      </div>
+      <h1>Imran Al Arif Billah</h1>
+      <p>Senior Operator</p>
+    </section>
+    <section id="tentang" class="section">
+      <h2>Tentang Saya</h2>
+      <p>
+        Saya adalah [profesi kamu], memiliki keahlian dalam [sebutkan skill
+        utama kamu]. Saya suka menciptakan solusi kreatif dan efisien untuk
+        berbagai tantangan digital.
+      </p>
+    </section>
+    <section id="portofolio" class="section">
+      <h2>Portofolio</h2>
+      <div class="portfolio-grid">
+        <div class="portfolio-item">
+          <a href="#"
+            ><img src="https://via.placeholder.com/400x300" alt="Proyek 1"
+          /></a>
+        </div>
+        <div class="portfolio-item">
+          <a href="#"
+            ><img src="https://via.placeholder.com/400x300" alt="Proyek 2"
+          /></a>
+        </div>
+        <div class="portfolio-item">
+          <a href="#"
+            ><img src="https://via.placeholder.com/400x300" alt="Proyek 3"
+          /></a>
+        </div>
+      </div>
+    </section>
+    <section id="kontak" class="section">
+      <h2>Kontak</h2>
+      <div class="kontak-info">
+        <a href="mailto:imranalarifbillah@gmail.com"
+          ><img
+            src="https://cdn-icons-png.flaticon.com/512/732/732200.png"
+            alt="Email"
+          />imranalarifbillah@gmail.com</a
+        ><a href="https://instagram.com/username" target="_blank"
+          ><img
+            src="https://cdn-icons-png.flaticon.com/512/733/733558.png"
+            alt="Instagram"
+          />
+          @username</a
+        ><a href="https://linkedin.com/in/username" target="_blank"
+          ><img
+            src="https://cdn-icons-png.flaticon.com/512/174/174857.png"
+            alt="LinkedIn"
+          />
+          LinkedIn /username</a
+        >
+      </div>
+    </section>
+    <footer>
+      &copy; 2025 Imran Al Arif Billah | Temukan saya di
+      <a href="#">LinkedIn</a> & <a href="#">Instagram</a>
+    </footer>
+    <script>
+      function toggleDarkMode() {
+        document.body.classList.toggle("dark-mode");
+      }
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+      document.querySelectorAll(".hero, .section").forEach((section) => {
+        observer.observe(section);
+      });
+    </script>
+  </body>
+</html>

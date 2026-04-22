@@ -26,7 +26,6 @@
             padding: 0 24px;
         }
 
-        /* Navbar */
         .navbar {
             background: rgba(255,255,255,0.95);
             backdrop-filter: blur(12px);
@@ -96,7 +95,6 @@
             width: 60%;
         }
 
-        /* Hero section */
         .hero {
             display: flex;
             flex-wrap: wrap;
@@ -183,7 +181,6 @@
             box-shadow: 0 25px 40px -12px rgba(0,0,0,0.25);
         }
 
-        /* Social Links */
         .social-links {
             display: flex;
             gap: 15px;
@@ -352,7 +349,6 @@
             color: #1e6f5c;
         }
 
-        /* ========== MODAL LIGHTBOX STYLE ========== */
         .modal {
             display: none;
             position: fixed;
@@ -471,7 +467,60 @@
             right: 30px;
         }
 
-        @media (max-width: 768px) {
+        .footer {
+            background: #0f212e;
+            color: #cddfe7;
+            text-align: center;
+            padding: 28px;
+            margin-top: 40px;
+        }
+
+        /* ========== PERBAIKAN UTAMA: MODE HP MENJADI CENTER ========== */
+        @media (max-width: 800px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            /* Biar navbar & menu jadi center di HP */
+            .nav-flex {
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
+            }
+            
+            .nav-links {
+                justify-content: center;
+                width: 100%;
+                gap: 16px;
+            }
+            
+            .logo h2 {
+                text-align: center;
+            }
+            
+            .social-links {
+                justify-content: center;
+            }
+            
+            .hero-text h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .nav-links a {
+                padding: 6px 14px;
+                font-size: 0.9rem;
+            }
+            
+            .hero-img img {
+                max-height: 380px;
+                object-fit: contain;
+            }
+            
             .modal-nav {
                 font-size: 24px;
                 padding: 8px 14px;
@@ -484,42 +533,6 @@
                 width: 40px;
                 height: 40px;
                 font-size: 30px;
-            }
-        }
-
-        .footer {
-            background: #0f212e;
-            color: #cddfe7;
-            text-align: center;
-            padding: 28px;
-            margin-top: 40px;
-        }
-
-        @media (max-width: 800px) {
-            .hero {
-                flex-direction: column;
-                text-align: center;
-            }
-            .nav-flex {
-                flex-direction: column;
-                gap: 12px;
-            }
-            .social-links {
-                justify-content: center;
-            }
-            .hero-text h1 {
-                font-size: 2.2rem;
-            }
-            .section-title {
-                font-size: 1.8rem;
-            }
-            .nav-links a {
-                padding: 6px 14px;
-                font-size: 0.9rem;
-            }
-            .hero-img img {
-                max-height: 380px;
-                object-fit: contain;
             }
         }
 
@@ -576,7 +589,6 @@
     <p>&copy; 2026 All Right Reserved | Imran Al Arif Billah</p>
 </footer>
 
-<!-- MODAL LIGHTBOX -->
 <div id="mediaModal" class="modal">
     <span class="close-modal">&times;</span>
     <div class="modal-nav prev-btn" id="prevMedia">&#10094;</div>
@@ -588,9 +600,6 @@
 </div>
 
 <script>
-    // ========================
-    // DATA PORTOFOLIO (ditambah dengan mediaType & mediaUrl untuk foto/video)
-    // ========================
     const portfolioData = {
         fullname: "Imran Al Arif Billah",
         role: "Operator Produksi & Teknisi Printing/Label",
@@ -630,15 +639,13 @@
                 year: "2019 - 2022"
             }
         ],
-        // PORTOFOLIO dengan dukungan foto & video (ganti sesuai keinginan)
-        // Untuk video, gunakan embed YouTube atau file video lokal
         portfolios: [
             {
                 title: "Testing",
                 desc: "Melakukan Burn In Test, dan cek segala keseluruhan untuk mengetes ketahanan dan kestabilan perangkat dengan cara dijalankan terus-menerus dalam kondisi berat selama beberapa waktu.",
                 image: "Burn in test.jpeg",
                 mediaType: "image",
-                mediaUrl: "Burn in test.jpeg"  // foto besar untuk modal
+                mediaUrl: "Burn in test.jpeg"
             },
             {
                 title: "Unit NG",
@@ -664,7 +671,6 @@
         ]
     };
 
-    // Fungsi utilitas
     function escapeHtml(str) {
         if (!str) return '';
         return str.replace(/[&<>]/g, function(m) {
@@ -682,11 +688,9 @@
         }
     }
 
-    // Variabel untuk modal & navigasi
     let currentMediaIndex = 0;
     let mediaList = [];
 
-    // Fungsi membuka modal dengan indeks tertentu
     function openModal(index) {
         if (!mediaList.length) return;
         currentMediaIndex = (index + mediaList.length) % mediaList.length;
@@ -699,7 +703,6 @@
         if (item.mediaType === 'video') {
             let videoHtml = '';
             if (item.isYoutube) {
-                // YouTube embed
                 let videoId = '';
                 if (item.mediaUrl.includes('youtube.com/embed/')) {
                     videoId = item.mediaUrl.split('/embed/')[1]?.split('?')[0];
@@ -718,7 +721,6 @@
             }
             container.innerHTML = videoHtml;
         } else {
-            // image
             container.innerHTML = `<img class="modal-media" src="${item.mediaUrl}" alt="${escapeHtml(item.title)}">`;
         }
         
@@ -733,7 +735,6 @@
         const modal = document.getElementById('mediaModal');
         modal.style.display = 'none';
         document.body.style.overflow = 'auto';
-        // hentikan video jika ada
         const container = document.getElementById('modalMediaContainer');
         container.innerHTML = '';
     }
@@ -746,9 +747,7 @@
         openModal(currentMediaIndex - 1);
     }
 
-    // Render semua konten
     function renderPortfolio() {
-        // Hero Section
         const heroSection = document.getElementById('heroSection');
         const emailLink = portfolioData.email ? `<a href="mailto:${escapeHtml(portfolioData.email)}" class="social-btn email"><i class="fas fa-envelope"></i> Email</a>` : '';
         const linkedinLink = portfolioData.linkedin ? `<a href="${escapeHtml(portfolioData.linkedin)}" target="_blank" rel="noopener noreferrer" class="social-btn linkedin"><i class="fab fa-linkedin"></i> LinkedIn</a>` : '';
@@ -772,7 +771,6 @@
         const profileImg = document.getElementById('profileImage');
         if (profileImg) profileImg.onerror = function() { handleImageError(this); };
         
-        // Skills
         const skillsContainer = document.getElementById('skillsList');
         if (skillsContainer) {
             skillsContainer.innerHTML = portfolioData.skills.map(skill => `
@@ -783,7 +781,6 @@
             `).join('');
         }
         
-        // Experiences
         const expContainer = document.getElementById('experienceList');
         if (expContainer) {
             expContainer.innerHTML = portfolioData.experiences.map(exp => `
@@ -795,7 +792,6 @@
             `).join('');
         }
         
-        // Educations
         const eduContainer = document.getElementById('educationList');
         if (eduContainer) {
             eduContainer.innerHTML = portfolioData.educations.map(edu => `
@@ -806,10 +802,8 @@
             `).join('');
         }
         
-        // Portfolios & siapkan mediaList untuk lightbox
         const portfolioContainer = document.getElementById('portfolioList');
         if (portfolioContainer) {
-            // Kumpulkan data media untuk lightbox (dari portfolios)
             mediaList = portfolioData.portfolios.map(port => ({
                 title: port.title,
                 desc: port.desc,
@@ -829,7 +823,6 @@
                 </div>
             `).join('');
             
-            // Tambahkan event listener ke setiap card portofolio
             document.querySelectorAll('.portfolio-card').forEach(card => {
                 card.addEventListener('click', function(e) {
                     const idx = parseInt(this.getAttribute('data-index'));
@@ -841,7 +834,6 @@
         }
     }
 
-    // Inisialisasi event modal
     function initModalEvents() {
         const modal = document.getElementById('mediaModal');
         const closeBtn = document.querySelector('.close-modal');
@@ -865,7 +857,6 @@
         });
     }
 
-    // Smooth scroll navbar
     document.querySelectorAll('.nav-links a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();

@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Imran-s Portofolio - Operator Produksi & Teknisi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(145deg, #f5f7fc 0%, #eef2f8 100%);
+            color: #1e2a3e;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(12px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 16px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .nav-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo h2 {
+            font-weight: 700;
+            font-size: 1.6rem;
+            background: linear-gradient(135deg, #0f2b3d, #1b4a6e);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 600;
+            color: #2c3e50;
+            padding: 8px 18px;
+            border-radius: 50px;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            border-color: #1e6f5c;
+            background: rgba(30,111,92,0.08);
+            transform: translateY(-3px);
+            color: #1e6f5c;
+            box-shadow: 0 6px 14px rgba(30,111,92,0.2);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 4px;
+            left: 50%;
+            width: 0%;
+            height: 2px;
+            background: #1e6f5c;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .nav-links a:hover::after {
+            width: 60%;
+        }
+
+        /* Hero section */
+        .hero {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 40px;
+            padding: 60px 0;
+        }
+
+        .hero-text {
+            flex: 1;
+            transition: transform 0.3s;
+        }
+
+        .hero-text:hover {
+            transform: translateX(8px);
+        }
+
+        .hero-text h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+
+        .hero-text .highlight {
+            display: inline-block;
+            background: linear-gradient(135deg, #1e6f5c, #2c9b82, #145c4d, #1e6f5c);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            border-bottom: 3px solid #1e6f5c;
+            transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            cursor: default;
+            animation: gradientShiftStatic 6s infinite alternate;
+        }
+
+        .hero-text .highlight:hover {
+            transform: scale(1.08) translateY(-4px);
+            animation: gradientShiftFast 0.8s infinite alternate;
+            text-shadow: 0 0 12px rgba(30,111,92,0.3);
+            border-bottom-color: #f4b942;
+        }
+
+        @keyframes gradientShiftStatic {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
+        @keyframes gradientShiftFast {
+            0% { background-position: 0% 50%; background-size: 250% 250%; }
+            100% { background-position: 100% 50%; background-size: 250% 250%; }
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            margin: 20px 0;
+            color: #2c3e50;
+            line-height: 1.6;
+        }
+
+        .hero-img {
+            flex: 0.8;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-img img {
+            max-width: 100%;
+            width: 100%;
+            height: auto;
+            max-height: 460px;
+            object-fit: contain;
+            object-position: center top;
+            border-radius: 32px;
+            box-shadow: 0 20px 35px -10px rgba(0,0,0,0.15);
+            transition: all 0.4s ease;
+            background: #f0f2f5;
+        }
+
+        .hero-img img:hover {
+            transform: scale(1.02) rotate(1deg);
+            box-shadow: 0 25px 40px -12px rgba(0,0,0,0.25);
+        }
+
+        /* Social Links */
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+            flex-wrap: wrap;
+        }
+
+        .social-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: white;
+            padding: 8px 18px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            color: #2c3e50;
+            transition: 0.3s;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .social-btn:hover {
+            transform: translateY(-3px);
+        }
+
+        .social-btn.email:hover {
+            background: #ea4335;
+            color: white;
+        }
+
+        .social-btn.linkedin:hover {
+            background: #0077b5;
+            color: white;
+        }
+
+        .social-btn.instagram:hover {
+            background: #d62976;
+            color: white;
+        }
+
+        section {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 48px;
+            position: relative;
+        }
+
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 70px;
+            height: 4px;
+            background: #1e6f5c;
+            margin: 12px auto 0;
+            border-radius: 4px;
+            transition: width 0.3s;
+        }
+
+        .section-title:hover:after {
+            width: 110px;
+        }
+
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .skill-card {
+            background: white;
+            padding: 20px 30px;
+            border-radius: 60px;
+            font-weight: 600;
+            box-shadow: 0 5px 12px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            cursor: default;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            background: #1e6f5c;
+            color: white;
+            box-shadow: 0 20px 25px -12px rgba(30,111,92,0.4);
+        }
+
+        .skill-card i {
+            font-size: 1.6rem;
+            color: #1e6f5c;
+            transition: 0.3s;
+        }
+
+        .skill-card:hover i {
+            color: white;
+            transform: rotate(10deg);
+        }
+
+        .exp-item, .edu-item {
+            background: white;
+            padding: 28px;
+            border-radius: 28px;
+            margin-bottom: 24px;
+            transition: all 0.35s;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .exp-item:hover, .edu-item:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.15);
+        }
+
+        .exp-item:hover h3, .edu-item:hover h3 {
+            color: #1e6f5c;
+        }
+
+        .exp-date {
+            color: #1e6f5c;
+            font-weight: 500;
+            margin-bottom: 12px;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .portfolio-card {
+            background: white;
+            border-radius: 28px;
+            overflow: hidden;
+            transition: all 0.4s;
+            box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+            cursor: pointer;
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 25px 35px -12px rgba(0,0,0,0.2);
+        }
+
+        .portfolio-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+
+        .portfolio-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .portfolio-info {
+            padding: 20px;
+        }
+
+        .portfolio-card:hover .portfolio-info h3 {
+            color: #1e6f5c;
+        }
+
+        /* ========== MODAL LIGHTBOX STYLE ========== */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.92);
+            backdrop-filter: blur(8px);
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            background: transparent;
+            border-radius: 24px;
+            overflow: hidden;
+            animation: zoomIn 0.3s ease;
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .modal-media {
+            max-width: 100%;
+            max-height: 80vh;
+            display: block;
+            margin: 0 auto;
+            border-radius: 20px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+        }
+
+        .modal-video {
+            max-width: 100%;
+            max-height: 80vh;
+            border-radius: 20px;
+            outline: none;
+        }
+
+        .modal-caption {
+            text-align: center;
+            color: white;
+            padding: 16px 24px;
+            font-size: 1.1rem;
+            background: rgba(0,0,0,0.6);
+            margin-top: 12px;
+            border-radius: 50px;
+            display: inline-block;
+            width: auto;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            background: rgba(0,0,0,0.5);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2001;
+        }
+
+        .close-modal:hover {
+            color: #1e6f5c;
+            background: white;
+            transform: scale(1.1);
+        }
+
+        .modal-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.6);
+            color: white;
+            font-size: 32px;
+            padding: 12px 18px;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: 0.3s;
+            user-select: none;
+            z-index: 2001;
+        }
+
+        .modal-nav:hover {
+            background: #1e6f5c;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .prev-btn {
+            left: 30px;
+        }
+
+        .next-btn {
+            right: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .modal-nav {
+                font-size: 24px;
+                padding: 8px 14px;
+            }
+            .prev-btn { left: 10px; }
+            .next-btn { right: 10px; }
+            .close-modal {
+                top: 10px;
+                right: 15px;
+                width: 40px;
+                height: 40px;
+                font-size: 30px;
+            }
+        }
+
+        .footer {
+            background: #0f212e;
+            color: #cddfe7;
+            text-align: center;
+            padding: 28px;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 800px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+            .nav-flex {
+                flex-direction: column;
+                gap: 12px;
+            }
+            .social-links {
+                justify-content: center;
+            }
+            .hero-text h1 {
+                font-size: 2.2rem;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+            .nav-links a {
+                padding: 6px 14px;
+                font-size: 0.9rem;
+            }
+            .hero-img img {
+                max-height: 380px;
+                object-fit: contain;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-img img {
+                max-height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="navbar">
+    <div class="container nav-flex">
+        <div class="logo">
+            <h2><i class="fas fa-industry"></i> Imran's Portofolio</h2>
+        </div>
+        <div class="nav-links">
+            <a href="#home">Tentang Saya</a>
+            <a href="#skills">Keahlian</a>
+            <a href="#experience">Pengalaman</a>
+            <a href="#portfolio">Portofolio</a>
+        </div>
+    </div>
+</div>
+
+<main class="container">
+    <section id="home">
+        <div class="hero" id="heroSection"></div>
+    </section>
+    
+    <section id="skills">
+        <h2 class="section-title">Keahlian</h2>
+        <div class="skills-grid" id="skillsList"></div>
+    </section>
+    
+    <section id="experience">
+        <h2 class="section-title">Riwayat Pekerjaan</h2>
+        <div id="experienceList"></div>
+    </section>
+    
+    <section id="education">
+        <h2 class="section-title">Pendidikan</h2>
+        <div id="educationList"></div>
+    </section>
+    
+    <section id="portfolio">
+        <h2 class="section-title">PT Acer Manufacturing Indonesia</h2>
+        <div class="portfolio-grid" id="portfolioList"></div>
+    </section>
+</main>
+
+<footer class="footer">
+    <p>&copy; 2026 All Right Reserved | Imran Al Arif Billah</p>
+</footer>
+
+<!-- MODAL LIGHTBOX -->
+<div id="mediaModal" class="modal">
+    <span class="close-modal">&times;</span>
+    <div class="modal-nav prev-btn" id="prevMedia">&#10094;</div>
+    <div class="modal-nav next-btn" id="nextMedia">&#10095;</div>
+    <div class="modal-content">
+        <div id="modalMediaContainer" style="text-align: center;"></div>
+        <div id="modalCaption" class="modal-caption"></div>
+    </div>
+</div>
+
+<script>
+    // ========================
+    // DATA PORTOFOLIO (ditambah dengan mediaType & mediaUrl untuk foto/video)
+    // ========================
+    const portfolioData = {
+        fullname: "Imran Al Arif Billah",
+        role: "Operator Produksi & Teknisi Printing/Label",
+        bio: "Memiliki pengalaman di bidang perakitan dan konfigurasi komputer, Inject OEM Digital Product Key, serta perawatan, dan troubleshooting perangkat keras/lunak. Selain itu, saya juga memiliki pengalaman dalam pengoperasian dan perawatan printer label industri untuk memastikan kualitas hasil cetak tetap optimal.",
+        heroImage: "asset/pp.jpeg",
+        email: "imranalarifbillah@gmail.com",
+        linkedin: "https://linkedin.com/in/imran-al-arif-billah-43640b349",
+        instagram: "https://instagram.com/192.168.0.1_24",
+        skills: [
+            "Printer Operation", 
+            "BarTender: Barcode Label Design and Printing Software", 
+            "PC Assembly & Troubleshooting (Hardware & Software)", 
+            "Microsoft Office (Basic)", 
+            "Problem Solving", 
+            "Commitment",
+            "Oriented",
+            "Teamwork/Individual skill"
+        ],
+        experiences: [
+            {
+                title: "Operator Produksi",
+                company: "CV Pilar Lintas Persada | Penempatan : PT Acer Manufacturing Indonesia",
+                period: "September 2022 - Desember 2024",
+                desc: "Merakit komputer mulai dari pemeriksaan komponen hingga siap digunakan, melakukan instalasi dan konfigurasi sistem operasi (Windows/Linux), melakukan inject OEM Digital Product Key (DPK), serta mendiagnosis dan menyelesaikan permasalahan dasar pada hardware (RAM, HDD, SSD) maupun software (OS, driver)."
+            },
+            {
+                title: "Teknisi Printing & Label",
+                company: "CV Pilar Lintas Persada | Penempatan : PT Acer Manufacturing Indonesia",
+                period: "Januari 2025 - Maret 2026",
+                desc: "Melakukan evaluasi untuk memastikan hasil cetak memenuhi standar kualitas perusahaan secara konsisten, melakukan perawatan ringan pada printer, serta memastikan layout dan spesifikasi label sesuai dengan produk."
+            }
+        ],
+        educations: [
+            {
+                degree: "SMKN 1 Tarumajaya",
+                institution: "Teknik Mekanik Industri",
+                year: "2019 - 2022"
+            }
+        ],
+        // PORTOFOLIO dengan dukungan foto & video (ganti sesuai keinginan)
+        // Untuk video, gunakan embed YouTube atau file video lokal
+        portfolios: [
+            {
+                title: "Testing",
+                desc: "Melakukan Burn In Test, dan cek segala keseluruhan untuk mengetes ketahanan dan kestabilan perangkat dengan cara dijalankan terus-menerus dalam kondisi berat selama beberapa waktu.",
+                image: "asset/Burn in test.jpeg",
+                mediaType: "image",
+                mediaUrl: "asset/Burn in test.jpeg"  // foto besar untuk modal
+            },
+            {
+                title: "Unit NG",
+                desc: "Melakukan troubleshooting dengan cara menganalisis dan memperbaiki kerusakan pada perangkat komputer, baik hardware maupun software, guna memastikan sistem berjalan dengan baik dan meminimalisir downtime.",
+                image: "asset/trouble shooting.jpeg",
+                mediaType: "image",
+                mediaUrl: "asset/trouble shooting.jpeg"
+            },
+            {
+                title: "Maintenance Ringan Printer",
+                desc: "Melakukan perawatan rutin pada printer, termasuk pembersihan komponen, pengecekan tinta/toner, serta memastikan hasil cetak tetap sesuai standar kualitas.",
+                image: "asset/maintenance ringan.jpeg",
+                mediaType: "image",
+                mediaUrl: "asset/maintenance ringan.jpeg",
+            },
+            {
+                title: "Konfigurasi",
+                desc: "Melakukan konfigurasi server Altos R3 dengan mencakup instalasi dan setup sistem operasi, konfigurasi RAID storage, pengaturan BIOS/firmware, serta setup jaringan untuk memastikan performa dan stabilitas server.",
+                image: "asset/Konfigurasi Altos R3.jpeg",
+                mediaType: "image",
+                mediaUrl: "asset/Konfigurasi Altos R3.jpeg"
+            }
+        ]
+    };
+
+    // Fungsi utilitas
+    function escapeHtml(str) {
+        if (!str) return '';
+        return str.replace(/[&<>]/g, function(m) {
+            if (m === '&') return '&amp;';
+            if (m === '<') return '&lt;';
+            if (m === '>') return '&gt;';
+            return m;
+        });
+    }
+
+    function handleImageError(imgElement) {
+        if (!imgElement.src.includes('ui-avatars')) {
+            imgElement.src = 'https://ui-avatars.com/api/?background=1e6f5c&color=fff&rounded=true&size=300&bold=true&name=Imran';
+            imgElement.alt = "Imran Avatar";
+        }
+    }
+
+    // Variabel untuk modal & navigasi
+    let currentMediaIndex = 0;
+    let mediaList = [];
+
+    // Fungsi membuka modal dengan indeks tertentu
+    function openModal(index) {
+        if (!mediaList.length) return;
+        currentMediaIndex = (index + mediaList.length) % mediaList.length;
+        const item = mediaList[currentMediaIndex];
+        const container = document.getElementById('modalMediaContainer');
+        const captionDiv = document.getElementById('modalCaption');
+        
+        container.innerHTML = '';
+        
+        if (item.mediaType === 'video') {
+            let videoHtml = '';
+            if (item.isYoutube) {
+                // YouTube embed
+                let videoId = '';
+                if (item.mediaUrl.includes('youtube.com/embed/')) {
+                    videoId = item.mediaUrl.split('/embed/')[1]?.split('?')[0];
+                } else if (item.mediaUrl.includes('youtu.be/')) {
+                    videoId = item.mediaUrl.split('youtu.be/')[1]?.split('?')[0];
+                } else if (item.mediaUrl.includes('v=')) {
+                    videoId = item.mediaUrl.split('v=')[1]?.split('&')[0];
+                }
+                if (videoId) {
+                    videoHtml = `<iframe class="modal-video" width="100%" height="500" src="https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border-radius:20px;"></iframe>`;
+                } else {
+                    videoHtml = `<video class="modal-media" controls autoplay><source src="${item.mediaUrl}" type="video/mp4">Browser tidak support video.</video>`;
+                }
+            } else {
+                videoHtml = `<video class="modal-media" controls autoplay><source src="${item.mediaUrl}" type="video/mp4">Browser tidak support video.</video>`;
+            }
+            container.innerHTML = videoHtml;
+        } else {
+            // image
+            container.innerHTML = `<img class="modal-media" src="${item.mediaUrl}" alt="${escapeHtml(item.title)}">`;
+        }
+        
+        captionDiv.innerHTML = `<strong>${escapeHtml(item.title)}</strong><br>${escapeHtml(item.desc)}`;
+        
+        const modal = document.getElementById('mediaModal');
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+        const modal = document.getElementById('mediaModal');
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+        // hentikan video jika ada
+        const container = document.getElementById('modalMediaContainer');
+        container.innerHTML = '';
+    }
+
+    function nextMedia() {
+        openModal(currentMediaIndex + 1);
+    }
+
+    function prevMedia() {
+        openModal(currentMediaIndex - 1);
+    }
+
+    // Render semua konten
+    function renderPortfolio() {
+        // Hero Section
+        const heroSection = document.getElementById('heroSection');
+        const emailLink = portfolioData.email ? `<a href="mailto:${escapeHtml(portfolioData.email)}" class="social-btn email"><i class="fas fa-envelope"></i> Email</a>` : '';
+        const linkedinLink = portfolioData.linkedin ? `<a href="${escapeHtml(portfolioData.linkedin)}" target="_blank" rel="noopener noreferrer" class="social-btn linkedin"><i class="fab fa-linkedin"></i> LinkedIn</a>` : '';
+        const instagramLink = portfolioData.instagram ? `<a href="${escapeHtml(portfolioData.instagram)}" target="_blank" rel="noopener noreferrer" class="social-btn instagram"><i class="fab fa-instagram"></i> Instagram</a>` : '';
+        
+        heroSection.innerHTML = `
+            <div class="hero-text">
+                <h1>Halo, Saya <span class="highlight">${escapeHtml(portfolioData.fullname)}</span><br>${escapeHtml(portfolioData.role)}</h1>
+                <p>${escapeHtml(portfolioData.bio)}</p>
+                <div class="social-links">
+                    ${emailLink}
+                    ${linkedinLink}
+                    ${instagramLink}
+                </div>
+            </div>
+            <div class="hero-img">
+                <img id="profileImage" src="${escapeHtml(portfolioData.heroImage)}" alt="Foto Profil Imran" onerror="handleImageError(this)">
+            </div>
+        `;
+        
+        const profileImg = document.getElementById('profileImage');
+        if (profileImg) profileImg.onerror = function() { handleImageError(this); };
+        
+        // Skills
+        const skillsContainer = document.getElementById('skillsList');
+        if (skillsContainer) {
+            skillsContainer.innerHTML = portfolioData.skills.map(skill => `
+                <div class="skill-card">
+                    <i class="fas fa-cogs"></i> 
+                    ${escapeHtml(skill)}
+                </div>
+            `).join('');
+        }
+        
+        // Experiences
+        const expContainer = document.getElementById('experienceList');
+        if (expContainer) {
+            expContainer.innerHTML = portfolioData.experiences.map(exp => `
+                <div class="exp-item">
+                    <h3>${escapeHtml(exp.title)} - ${escapeHtml(exp.company)}</h3>
+                    <div class="exp-date">${escapeHtml(exp.period)}</div>
+                    <p>${escapeHtml(exp.desc)}</p>
+                </div>
+            `).join('');
+        }
+        
+        // Educations
+        const eduContainer = document.getElementById('educationList');
+        if (eduContainer) {
+            eduContainer.innerHTML = portfolioData.educations.map(edu => `
+                <div class="edu-item">
+                    <h3>${escapeHtml(edu.degree)}</h3>
+                    <div class="exp-date">${escapeHtml(edu.institution)} • ${escapeHtml(edu.year)}</div>
+                </div>
+            `).join('');
+        }
+        
+        // Portfolios & siapkan mediaList untuk lightbox
+        const portfolioContainer = document.getElementById('portfolioList');
+        if (portfolioContainer) {
+            // Kumpulkan data media untuk lightbox (dari portfolios)
+            mediaList = portfolioData.portfolios.map(port => ({
+                title: port.title,
+                desc: port.desc,
+                mediaType: port.mediaType || 'image',
+                mediaUrl: port.mediaUrl || port.image,
+                isYoutube: port.isYoutube || false,
+                thumbnail: port.image
+            }));
+            
+            portfolioContainer.innerHTML = portfolioData.portfolios.map((port, idx) => `
+                <div class="portfolio-card" data-index="${idx}">
+                    <img src="${escapeHtml(port.image)}" alt="${escapeHtml(port.title)}" loading="lazy" onerror="this.src='https://picsum.photos/id/1/400/250'">
+                    <div class="portfolio-info">
+                        <h3>${escapeHtml(port.title)}</h3>
+                        <p>${escapeHtml(port.desc)}</p>
+                    </div>
+                </div>
+            `).join('');
+            
+            // Tambahkan event listener ke setiap card portofolio
+            document.querySelectorAll('.portfolio-card').forEach(card => {
+                card.addEventListener('click', function(e) {
+                    const idx = parseInt(this.getAttribute('data-index'));
+                    if (!isNaN(idx)) {
+                        openModal(idx);
+                    }
+                });
+            });
+        }
+    }
+
+    // Inisialisasi event modal
+    function initModalEvents() {
+        const modal = document.getElementById('mediaModal');
+        const closeBtn = document.querySelector('.close-modal');
+        const prevBtn = document.getElementById('prevMedia');
+        const nextBtn = document.getElementById('nextMedia');
+        
+        if (closeBtn) closeBtn.addEventListener('click', closeModal);
+        if (prevBtn) prevBtn.addEventListener('click', prevMedia);
+        if (nextBtn) nextBtn.addEventListener('click', nextMedia);
+        
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+        
+        document.addEventListener('keydown', (e) => {
+            if (modal.style.display === 'flex') {
+                if (e.key === 'Escape') closeModal();
+                if (e.key === 'ArrowLeft') prevMedia();
+                if (e.key === 'ArrowRight') nextMedia();
+            }
+        });
+    }
+
+    // Smooth scroll navbar
+    document.querySelectorAll('.nav-links a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
+            if (targetElement) {
+                const offset = 80;
+                const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                window.scrollTo({ top: elementPosition - offset, behavior: 'smooth' });
+            }
+        });
+    });
+
+    renderPortfolio();
+    initModalEvents();
+    window.handleImageError = handleImageError;
+</script>
+</body>
+</html>
